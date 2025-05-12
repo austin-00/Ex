@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home Page</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ==== Root Variables ==== */
+    :root {
+      --primary-color: #560a9e;
+      --text-color: #333;
+      --bg-light: #f9f9f9;
+      --card-bg: #fff;
+      --accent: #ff5722;
+      --border-radius: 8px;
+      --transition: 0.3s ease;
+      --spacing: 1rem;
+      --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ==== Reset and Base ==== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding-bottom: 3rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: var(--transition);
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: var(--border-radius);
+    }
+
+    header {
+      background: white;
+      box-shadow: var(--shadow);
+      padding: var(--spacing);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1rem;
+      justify-content: space-between;
+    }
+
+    nav img {
+      height: 50px;
+    }
+
+    nav a {
+      font-weight: bold;
+      padding: 0.5rem;
+    }
+
+    nav input[type="text"] {
+      padding: 0.5rem;
+      border-radius: var(--border-radius);
+      border: 1px solid #ccc;
+    }
+
+    nav button {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    nav button:hover {
+      background: var(--accent);
+    }
+
+    main {
+      padding: var(--spacing);
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .main-links {
+      text-align: right;
+      margin: 1rem 0;
+    }
+
+    p {
+      margin: 1.5rem 0;
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: var(--primary-color);
+    }
+
+    .products-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--border-radius);
+      padding: 1rem;
+      width: 200px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    .developers {
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .developers img {
+      border-radius: 50%;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .main-links {
+        text-align: center;
+      }
+
+      .product-card {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">
+        <img src="logo.jpg" alt="AJ Logo"/>
+      </a>
+      <a href="index.html">HOME</a>
+      <a href="cart.html">CART</a>
+      <a href="help.html">HELP & SUPPORT</a>
+      <a href="Catagories.html">CATAGORIES</a>
+      <a href="signin.html">SIGN IN</a>
+      <input type="text" id="searchInput" placeholder="Search for products..." height="50">
+<button onclick="handleSearch()">Search</button>
+
+    </nav>
+  </header>
+
+  <main>
+    <table width="100%">
+      <tr>
+        <td></td>
+        <td align="right" class="main-links">
+          <a href="index/mens_section/mens.html">MENS SECTION</a> |
+          <a href="index/womens section/womens.html">WOMENS SECTION</a> |
+          <a href="index/kids section/kids.html">KIDS SECTION</a>
+        </td>
+      </tr>
+    </table>
+
+    <p><b>Welcome to the biggest online shopping platform in Barishal</b></p>
+    <img src="cover photo.jpg" height="flex"/>
+    <h2>Just For You</h2>
+
+    <div id="product-container" class="products-grid"></div>
+
+    <div class="developers">
+      <table>
+        <tr>
+          <td>
+            <img src="New folder/1001753672.jpg" width="150" height="150" alt=""><br>
+            <b>Alan Austin</b><br>
+            <b>ID: 12421019</b>
+          </td>
+          <td>
+            <img src="New folder/WhatsApp Image 2025-02-02 at 23.15.46_b2c8ca5f.jpg" width="150" height="150" alt=""><br>
+            <b>Jana Roy</b><br>
+            <b>ID: 12421118</b>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </main>
+
+  <!-- JavaScript to Load Products and Search -->
+<script>
+// --- Product Data ---
+const allProducts = [
+  {
+    name: "Dark Green Formal Shirt",
+    image: "/index/index/mens_section/shirt/shirt 1.jpg",
+    link: "/index/index/mens_section/shirt/shirt1.html"
+  },
+  {
+    name: "Maroon Formal Shirt",
+    image: "/index/index/mens_section/shirt/shirt 2.jpg",
+    link: "/index/index/mens_section/shirt/shirt2.html"
+  },
+  {
+    name: "Lehenga",
+    image: "/index/index/womens section/lehenga/lehenga1.jpg",
+    link: "/index/index/womens section/lehenga/lehenga1.html"
+  },
+  {
+    name: "Kids Yellow Hoodie",
+    image: "kids_section/yellow-hoodie.jpg",
+    link: "kids_section/yellow-hoodie.html"
+  }
+  // ➕ Add more products as needed
+];
+
+// --- Fuzzy Matching Using Levenshtein Distance ---
+function levenshtein(a, b) {
+  const matrix = Array.from({ length: a.length + 1 }, () =>
+    Array(b.length + 1).fill(0)
+  );
+
+  for (let i = 0; i <= a.length; i++) matrix[i][0] = i;
+  for (let j = 0; j <= b.length; j++) matrix[0][j] = j;
+
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      if (a[i - 1] === b[j - 1]) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j] + 1,
+          matrix[i][j - 1] + 1,
+          matrix[i - 1][j - 1] + 1
+        );
+      }
+    }
+  }
+
+  return matrix[a.length][b.length];
+}
+
+// --- Product Filter ---
+function handleSearch() {
+  const input = document.getElementById("searchInput").value.trim().toLowerCase();
+
+  const threshold = 5; // Allow fuzzy matches with up to 5 edits
+  const matches = allProducts.filter(product => {
+    const name = product.name.toLowerCase();
+    const dist = levenshtein(input, name);
+    return name.includes(input) || dist <= threshold;
+  });
+
+  displayProducts(matches);
+}
+
+// --- Display Products ---
+function displayProducts(products) {
+  const container = document.getElementById("product-container");
+  container.innerHTML = "";
+
+  if (products.length === 0) {
+    container.innerHTML = "<p>No matching products found.</p>";
+    return;
+  }
+
+  products.forEach(product => {
+    const productHTML = `
+      <a href="${product.link}">
+        <img src="${product.image}" width="150" height="150" alt="${product.name}">
+        <br><b>${product.name}</b>
+      </a>
+    `;
+    container.innerHTML += productHTML;
+  });
+}
+
+// --- Show All Products on Load ---
+window.onload = () => {
+  displayProducts(allProducts);
+};
+</script>
+
+
+</body>
+</html>

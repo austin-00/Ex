@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Black Casual Sneakers - Details</title>
+  <style>
+    .product-container {
+      display: flex;
+      gap: 30px;
+      padding: 40px;
+    }
+    .product-image img {
+      width: 300px;
+      border-radius: 10px;
+    }
+    .product-details {
+      max-width: 600px;
+    }
+    .product-buttons button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/index/index.html">HOME</a>
+      <a href="/index/index/mens_section/shoes/shoe_section.html">BACK TO SHOES</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-container">
+      <div class="product-image">
+        <img src="shoe5.jpg" alt="Black Sneakers">
+      </div>
+      <div class="product-details">
+        <h1>Gray Slip-on Shoes</h1>
+        <p>Lightweight, durable sneakers perfect for everyday wear. Made from breathable materials with a cushioned sole.</p>
+        <p><strong>Price:</strong> ৳999 <s>৳1600</s></p>
+        <p><strong>Sizes Available:</strong> 40, 41, 42, 43</p>
+        <div class="product-buttons">
+          <button onclick="addToCart()">Add to Cart</button>
+          <button onclick="orderNow()">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function addToCart() {
+      alert("Shoe added to cart!");
+    }
+    function orderNow() {
+      alert("Redirecting to checkout...");
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cart Section</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    main {
+    max-width: 1000px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cart-container {
+    overflow-x: auto;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background-color: #f8f8f8;
+}
+
+.cart-summary {
+    text-align: right;
+}
+
+.cart-summary h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #000;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="Catagories.html">CATEGORIES</a>
+      <a href="help.html">HELP & SUPPORT</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Your Cart</h2>
+    <div class="cart-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Subtotal</th>
+            <th>Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items">
+          <!-- Dynamically filled by JS -->
+        </tbody>
+      </table>
+      <div class="cart-summary">
+        <h3>Total: $<span id="total-price">0.00</span></h3>
+        <button id="checkout">Proceed to Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const cartData = [
+      { id: 1, name: "Wireless Headphones", price: 49.99, quantity: 2 },
+      { id: 2, name: "Digital Watch", price: 29.99, quantity: 1 },
+    ];
+
+    function renderCart() {
+      const cartItemsEl = document.getElementById("cart-items");
+      cartItemsEl.innerHTML = "";
+      let total = 0;
+
+      cartData.forEach(item => {
+        const subtotal = item.price * item.quantity;
+        total += subtotal;
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.name}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>${item.quantity}</td>
+          <td>$${subtotal.toFixed(2)}</td>
+          <td><button onclick="removeItem(${item.id})">Remove</button></td>
+        `;
+        cartItemsEl.appendChild(row);
+      });
+
+      document.getElementById("total-price").textContent = total.toFixed(2);
+    }
+
+    function removeItem(id) {
+      const index = cartData.findIndex(item => item.id === id);
+      if (index !== -1) {
+        cartData.splice(index, 1);
+        renderCart();
+      }
+    }
+
+    renderCart();
+
+    document.getElementById("checkout").addEventListener("click", () => {
+      alert("Proceeding to checkout!");
+    });
+  </script>
+</body>
+</html>

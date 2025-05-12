@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product Categories</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f8fa;
+    }
+
+    header {
+      background-color: #333;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .category-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .category-card a {
+      text-decoration: none;
+      color: #007bff;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="categories.html">CATEGORIES</a>
+      <a href="cart.html">CART</a>
+      <a href="help.html">HELP & SUPPORT</a>
+    </nav>
+  </header>
+
+  <h2>Shop by Category</h2>
+
+  <div class="category-grid">
+    <div class="category-card"><a href="fashion.html">Fashion</a></div>
+    <div class="category-card"><a href="groceries.html">Groceries</a></div>
+    <div class="category-card"><a href="electronics.html">Electronics</a></div>
+    <div class="category-card"><a href="home-kitchen.html">Home & Kitchen</a></div>
+    <div class="category-card"><a href="beauty.html">Beauty & Personal Care</a></div>
+    <div class="category-card"><a href="sports.html">Sports & Fitness</a></div>
+    <div class="category-card"><a href="books.html">Books & Stationery</a></div>
+    <div class="category-card"><a href="baby.html">Baby Products</a></div>
+    <div class="category-card"><a href="automotive.html">Automotive</a></div>
+    <div class="category-card"><a href="toys.html">Toys & Games</a></div>
+  </div>
+
+</body>
+</html>

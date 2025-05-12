@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lehenga 1 - Product Details</title>
+  <link rel="stylesheet" href="../../../../style.css"> <!-- adjust path as needed -->
+  <style>
+    .product-container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 40px;
+    }
+    .product-image img {
+      width: 300px;
+      border-radius: 10px;
+    }
+    .product-details {
+      max-width: 600px;
+    }
+    .product-details h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    .product-details p {
+      font-size: 1.1em;
+      margin: 10px 0;
+    }
+    .product-price {
+      color: #28a745;
+      font-weight: bold;
+      font-size: 1.4em;
+    }
+    .product-buttons button {
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .product-buttons button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="\index\index.html">HOME</a>
+      <a href="\index\Catagories.html">CATEGORIES</a>
+      <a href="../../../help.html">HELP & SUPPORT</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="product-container">
+      <div class="product-image">
+        <img src="\index\index\womens section\lehenga\lehenga1.jpg" alt="Red Bridal Lehenga">
+      </div>
+      <div class="product-details">
+        <h1>Red Bridal Lehenga</h1>
+        <p><strong>Description:</strong> Elegant red bridal lehenga with intricate embroidery and premium silk material. Ideal for weddings and grand celebrations.</p>
+        <p class="product-price">৳4999</p>
+        <div class="product-buttons">
+          <button onclick="addToCart()">Add to Cart</button>
+          <button onclick="orderNow()">Order Now</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function addToCart() {
+      alert("Product added to cart!");
+      // In a real project, connect this to backend/localStorage
+    }
+
+    function orderNow() {
+      alert("Redirecting to order page...");
+      // window.location.href = "checkout.html"; // Uncomment when linking to checkout
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    
+</head>
+<body>
+   <nav>
+    <form>
+        <h2>Create an Account</h2>
+        <p>Please provide your first and last name as you would like it to appear on your Participant Certificate. You can change this at any time, even after submitting a project. When inputting your name, please adhere to the <a href="https://www.spaceappschallenge.org/about/">NASA Space Apps Values.
+        </a></p>
+    
+        <div>
+            <label>Full Name:</label>
+            <br><input type="text" name="first_name" placeholder="Enter your first name" required>
+        </div>
+    
+        <div>
+            <br>
+            <label>User Name:</label>
+            <br><input type="text" name="last_name" placeholder="Enter your last name" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Email:</label>
+            <br><input type="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Confirm Email:</label>
+            <br><input type="Confirm email" name="Confirm email" placeholder="Confirm your email" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Password:</label>
+            <input type="password" name="password" placeholder="Create a password" required>
+        </div>
+
+        <div>
+            <br>
+            <label>Confirm Password:</label>
+            <input type="Confirm password" name="Confirm password" placeholder="Create a password" required>
+        </div>
+    
+        <div>
+            <br>
+            <label>Upload an Avatar</label>
+            <p>By uploading an image to the NASA Space Apps website, you are certifying that you have permission/rights to use the image. Do not upload images that are copyrighted or trademarked. Your avatar will be displayed publicly on your projects.</p>
+            <input type="file" name="avatar" required>
+            <br><button>Browse</button>
+        </div>
+    
+        <div>
+            <br>
+            <label>Area of Residance</label>
+            <input type="text" name="residance name" placeholder="Enter your address" required>
+            <option> </option>
+            <div>
+                <br>
+                <label>Area of Residance</label>
+                <select name="residance" required>
+                    <option value="" disabled selected>Select your residance</option>
+                    <option value="Bangladesh">Bangladesh</option>
+                    <option value="Bngladesh">Bangladesh</option>
+                    <option value="India">India</option>
+                    <option value="Pakistan">Pakistan</option>
+                    <option value="Srilanka">Srilanka</option>
+                    <option value="Canada">Canada</option>
+                    <option value="USA">USA</option>
+                    <option value="Uganada">Uganda</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <br>
+            <label for="terms">Terms & Conditions</label>
+           <p>
+                <input type="checkbox" id="agreeCheck">
+                <label for="agreeCheck">I agree to the Terms and Conditions, and Privacy Policy.</label>
+            </p>
+        </div>
+        
+        <div>
+            <br>
+            <button type="create">Create an account</button>
+        </div>
+    </form>
+    
+   </nav>
+</body>
+</html>
